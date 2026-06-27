@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <section id="loginView" class="card auth-card">
+        <div class="brand-block">
+          <p class="eyebrow">People Operations</p>
+          <h1>Employee Dashboard</h1>
+          <p class="subtitle">Secure access for managers and staff.</p>
+        </div>
+        <form id="loginForm" class="auth-form">
+          <label for="username">Username</label>
+          <input id="username" name="username" placeholder="Enter username" required />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Enter password" required />
+
+          <button type="submit">Login</button>
+          <p class="hint">Try admin / admin or employee / employee</p>
+          <p id="loginMessage" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="dashboardView" class="hidden">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Employee Management</p>
+            <h2 id="welcomeMessage">Welcome</h2>
+          </div>
+          <button id="logoutBtn" class="secondary-btn">Logout</button>
+        </header>
+
+        <section class="stats-grid">
+          <article class="stat-card accent-blue">
+            <p>Total Employees</p>
+            <h3 id="totalEmployees">0</h3>
+          </article>
+          <article class="stat-card accent-green">
+            <p>Current User</p>
+            <h3 id="currentUserRole">Employee</h3>
+          </article>
+        </section>
+
+        <div class="dashboard-grid">
+          <section class="card">
+            <div class="card-header">
+              <h3 id="formTitle">Add Employee</h3>
+            </div>
+            <form id="employeeForm" class="employee-form">
+              <input type="hidden" id="employeeId" />
+              <label for="name">Full Name</label>
+              <input id="name" name="name" placeholder="Jane Smith" required />
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="jane@example.com" required />
+
+              <label for="department">Department</label>
+              <input id="department" name="department" placeholder="Engineering" required />
+
+              <label for="position">Position</label>
+              <input id="position" name="position" placeholder="Frontend Developer" required />
+
+              <button type="submit" id="submitBtn">Save Employee</button>
+              <p id="employeeMessage" class="message" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="card">
+            <div class="card-header">
+              <h3>Employees</h3>
+              <input id="searchInput" placeholder="Search by name or role" />
+            </div>
+            <div id="employeeList" class="employee-list"></div>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
